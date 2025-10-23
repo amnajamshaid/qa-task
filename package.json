@@ -1,0 +1,23 @@
+{
+  "name": "qa-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server task -p 3000 -c-1",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test:smoke": "start-server-and-test start http://localhost:3000 cypress:run",
+    "test:gui": "start-server-and-test start http://localhost:3000 cypress:open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "cypress": "^15.5.0",
+    "http-server": "^14.1.1",
+    "start-server-and-test": "^2.1.2",
+    "typescript": "^5.9.3"
+  }
+}
