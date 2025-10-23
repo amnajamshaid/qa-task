@@ -20,7 +20,28 @@ All code should be on Github, the GH runner should have had at least one seccess
    ```bash
    npm install
    ```
+
 2. Start the server:
    ```bash
-   npx http-server -p 3000
+   npm run start
    ```
+
+3. Run tests:
+   ```bash
+   # Run tests in headless mode
+   npm run test:smoke
+   
+   # Open Cypress GUI for interactive testing
+   npm run test:gui
+   ```
+
+### CI/CD Pipeline
+
+This project includes a GitHub Actions workflow that:
+- ✅ Runs automatically on every Pull Request
+- ✅ Runs automatically on pushes to `main` branch
+- ✅ Uses Cypress with Chrome browser
+- ✅ Uploads test videos and screenshots as artifacts
+- ✅ Waits for the server to be ready before running tests
+
+The pipeline is configured in `.github/workflows/ci.yml`
