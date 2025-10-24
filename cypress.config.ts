@@ -28,11 +28,10 @@ export default defineConfig({
     reporterOptions: {
       reportDir: "cypress/reports/mochawesome",
       overwrite: false,
-      html: false,
-      json: true,
-      timestamp: "mmddyyyy_HHMMss",
+      html: true,
+      json: false,
       embeddedScreenshots: true,
-      screenshotsFolder: "cypress/screenshots"
+      saveAllAttempts: false
     }
   }
 });
