@@ -45,7 +45,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-report-${{ matrix.browser }}
-          path: cypress/reports/html
+          path: cypress/reports/mochawesome/*.html
 
       - name: Store Cypress screenshots (${{ matrix.browser }})
         if: always()
