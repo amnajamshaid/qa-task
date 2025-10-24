@@ -1,43 +1,44 @@
-# Edge Cases & Test-First Rationale
+# Test Cases & Priorities
 
-This document summarizes the edge cases identified for the Counter app and records our decision to follow a requirements-first (test-first) approach.
+## Test Cases
 
-## Requirements-first approach
-- Tests assert the requirement: "Counter should only display positive numbers".
-- Per QA best-practice we write these tests first and allow them to fail to prove the requirement is not met.
-- Failing tests are evidence of defects and help drive development and prioritization.
+| ID | Description | Priority | Status |
+|----|-------------|----------|--------|
+| **TC001** | Decrement from 0 should stay at 0 | **P0** | ❌ FAIL |
+| **TC002** | Multiple decrements from 0 should stay at 0 | **P0** | ❌ FAIL |
+| **TC003** | Decrement from 1 correctly returns to 0 | **P1** | ✅ PASS |
+| **TC004** | Initial counter value is 0 | **P1** | ✅ PASS |
+| **TC005** | Buttons are visible and enabled on load | **P1** | ✅ PASS |
+| **TC006** | Single increment from 0 to 1 | **P1** | ✅ PASS |
+| **TC007** | Increment from 1 to 2 | **P1** | ✅ PASS |
+| **TC008** | Multiple sequential increments | **P1** | ✅ PASS |
+| **TC009** | 0 → decrement → increment sequence | **P0** | ❌ FAIL |
+| **TC010** | 1 → decrement → increment sequence | **P1** | ✅ PASS |
+| **TC011** | Excessive decrements should floor at 0 | **P0** | ❌ FAIL |
+| **TC013** | Mixed increment/decrement operations | **P0** | ❌ FAIL |
+| **TC014** | Complex scenarios prevent negatives | **P0** | ❌ FAIL |
+| **TC015** | Double-click increment behavior | **P2** | ✅ PASS |
+| **TC016** | Keyboard navigation with Tab | **P2** | ✅ PASS |
+| **TC017** | Enter/Space activate focused button | **P2** | ✅ PASS |
+| **TC018** | Large numbers display correctly | **P2** | ✅ PASS |
+| **TC019** | Rapid clicking maintains accuracy | **P2** | ✅ PASS |
 
-## High-priority edge cases (must be automated)
-- **TC001**: Decrement from 0 should keep counter at 0 (never negative)
-- **TC002**: Multiple decrements from 0 should still keep counter at 0
-- **TC003**: From 1, decrement becomes 0 (normal behaviour)
-- **TC004**: Basic increment functionality (0 → 1)
-- **TC005**: Basic increment functionality (1 → 2)
-- **TC006**: Sequences like 0→decrement→increment should not produce negative values
-- **TC007**: Excessive decrements (e.g., decrement 10 times) should floor at 0
+---
 
-## Medium-priority edge cases
-- **TC008**: Rapid clicking increments — ensure correctness under stress
-- **TC009**: Rapid clicking decrements — ensure correctness under stress
-- **TC010**: Double-click increment behavior should be deterministic
-- **TC011**: Double-click decrement behavior should be deterministic
-- **TC012**: Keyboard activation (Enter/Space) should activate increment button
-- **TC013**: Keyboard activation (Enter/Space) should activate decrement button
-- **TC014**: Mixed rapid increment/decrement operations
+## Test Coverage
 
-## Low-priority edge cases
-- **TC015**: Very large numbers display and formatting (1000+)
-- **TC016**: Accessibility and focus outlines visibility
-- **TC017**: Button states and visual feedback
-- **TC018**: Cross-browser compatibility (Edge, Firefox, Safari)
+**By Priority:**
+- **P0 (Critical):** 6 tests — 0% passing
+- **P1 (High):** 8 tests — 100% passing
+- **P2 (Medium):** 4 tests — 100% passing
 
-## Evidence strategy
-- Failing tests + CI artifacts (videos/screenshots/logs) will be used as bug evidence.
-- Tests live in `cypress/e2e/counter/` and are split into:
-  - `requirements-validation.cy.ts` (failing tests demonstrating defects)
-  - `basic-functionality.cy.ts` (tests that assert functionality that already passes)
+**By Type:**
+- Boundary value testing
+- State transition validation
+- Basic operations (increment/decrement)
+- UI state validation
+- Accessibility (keyboard navigation)
+- Performance (rapid clicks, large numbers)
+- UX (double-click)
 
-## Next steps
-1. Run the failing tests locally to capture output and artifacts.
-2. Open a PR showing tests failing; attach failing artifacts in CI.
-3. Work with the dev team to fix the app; rerun tests to confirm fixes.
+**Total:** 18 automated test cases
