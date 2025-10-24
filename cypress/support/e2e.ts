@@ -1,3 +1,5 @@
+import 'cypress-mochawesome-reporter/register';
+
 // Note: Cypress runs these hooks once PER SPEC FILE, not once for entire test run
 // This is Cypress limitation - there's no true "global before/after all specs" hook
 
