@@ -413,8 +413,8 @@ qa-task/
 
 | Browser | Status | Duration | Artifacts |
 |---------|--------|----------|-----------|
-| 🟢 **Chrome** | [View Run](#) | 2m 42s | [Download Reports](#) |
-| 🟦 **Firefox** | [View Run](#) | 2m 38s | [Download Reports](#) |
+| 🟢 **Chrome** | [View Run](https://github.com/amnajamshaid/qa-task/actions/runs/18786211487/job/53605018007) | 2m 42s | [Download Reports](https://github.com/amnajamshaid/qa-task/actions/runs/18786211487/artifacts/4365348899) |
+| 🟦 **Firefox** | [View Run](https://github.com/amnajamshaid/qa-task/actions/runs/18786211487/job/53605018008) | 2m 38s | [Download Reports](https://github.com/amnajamshaid/qa-task/actions/runs/18786211487/artifacts/4365349697) |
 
 ---
 
@@ -515,38 +515,4 @@ static see(expectedValue: number) {
 │ • Available for download from GitHub Actions                 │
 └──────────────────────────────────────────────────────────────┘
 ```
-
----
-
-#### 4️⃣ Generated Artifacts
-
-**HTML Report Entry:**
-```
-❌ TC001: Should NOT allow negative numbers when decrementing from 0
-   Duration: 487ms
-   Attempts: 2 (both failed)
-   
-   Error: AssertionError: expected '-1' to equal '0'
-   
-   📸 Screenshot (Attempt 1): counter-displays-negative-one.png
-   📸 Screenshot (Attempt 2): counter-displays-negative-one-retry.png
-```
-
-**Screenshot Shows:**
-- Counter display: `-1` (in red highlight)
-- Decrement button (clicked)
-- Visual proof of bug
-
----
-
-#### 5️⃣ What This Demonstrates
-
-✅ **Maintainable:** Page Object hides UI details, test code is readable  
-✅ **Automated:** No manual intervention needed  
-✅ **Evidence-Rich:** Screenshots prove the bug exists  
-✅ **CI-Ready:** Same test runs locally and in GitHub Actions  
-✅ **Retry Logic:** Handles flakiness with automatic retries  
-✅ **Reporting:** Professional HTML report for stakeholders  
-
----
 
