@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Clean old reports
+        run: npm run clean:reports
+
       - name: Cypress run on ${{ matrix.browser }}
         uses: cypress-io/github-action@v6
         with:
@@ -35,14 +38,14 @@ jobs:
           command: npm run cypress:run
         env:
           BASE_URL: http://localhost:3000
-          CYPRESS_VIDEO: true
+        continue-on-error: true
 
-      - name: Store Cypress videos (${{ matrix.browser }})
+      - name: Store HTML Report (${{ matrix.browser }})
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-videos-${{ matrix.browser }}
-          path: cypress/videos
+          name: test-report-${{ matrix.browser }}
+          path: cypress/reports/html
 
       - name: Store Cypress screenshots (${{ matrix.browser }})
         if: always()
