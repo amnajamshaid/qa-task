@@ -15,6 +15,7 @@ package-lock.json#*
 cypress/screenshots/
 cypress/videos/
 cypress/downloads/
+cypress/reports/
 
 # Build outputs
 dist/
