@@ -117,9 +117,9 @@ npm run test:report
 
 **Output:**
 ```
-✓ 10 tests passed
+✓ 12 tests passed
 ✗ 6 tests failed (intentionally - demonstrating bugs)
-✗ 2 tests skipped
+
 Report: cypress/reports/mochawesome/index.html
 ```
 
